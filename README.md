@@ -1,37 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔗 ZippyLinks – URL Shortener Web Application
 
-## Getting Started
+ZippyLinks is a production-ready URL Shortener web application built using Next.js and MongoDB.  
+It converts long URLs into short, easy-to-share links and tracks real-time click analytics.
 
-First, run the development server:
+The application is deployed on Vercel and designed with scalability, clean architecture, and future enhancements in mind.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Live Project
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+https://url-shortner-eight-xi.vercel.app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+- Generate short URLs instantly
+- Click counter for each shortened link
+- Fast and secure redirection
+- Separate landing page
+- MongoDB-based persistent storage
+- Deployed on Vercel
+- Authentication-ready structure (future scope)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+Frontend   : Next.js, React, HTML, CSS, JavaScript  
+Backend    : Next.js API Routes (Serverless)  
+Database   : MongoDB  
+Deployment : Vercel  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# URL-Shortner" 
+## 🧠 System Design
+
+### High-Level Architecture
+
+User  
+→ Frontend (Next.js)  
+→ Backend (API Routes)  
+→ MongoDB  
+→ Backend  
+→ Frontend  
+→ Original URL  
+
+---
+
+### URL Shortening Flow
+
+User enters long URL  
+→ Generate unique short code  
+→ Store mapping in MongoDB  
+→ Return short URL  
+
+---
+
+### Redirection & Click Tracking Flow
+
+Short URL accessed  
+→ Fetch original URL from database  
+→ Increment click counter  
+→ Redirect to original URL  
+
+---
+
+## 🗄️ Database Schema (MongoDB)
+
+```js
+{
+  _id: ObjectId,
+  originalUrl: String,
+  shortCode: String,
+  clicks: Number,
+  createdAt: Date
+}
